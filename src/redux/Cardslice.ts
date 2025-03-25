@@ -1,7 +1,7 @@
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Card {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -28,9 +28,11 @@ const cardLibrarySlice = createSlice({
   reducers: {
     addCard: (state, action: PayloadAction<Card>) => {
       state.cards.push(action.payload);
+      console.log("Added Card:", action.payload);
     },
     removeCard: (state, action: PayloadAction<string>) => {
-      state.cards = state.cards.filter(card => card.title !== action.payload);
+      state.cards = state.cards.filter(card => card.id !== action.payload);
+      console.log(`Removed Card with ID: ${action.payload}`);
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;

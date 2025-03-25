@@ -5,7 +5,7 @@ import { setCurrentPage } from "../redux/Cardslice";
 import CardForm from "./CardForm";
 import SearchBox from "./SearchBar";
 import Pagination from "./Pagination";
-import CardItem from "./CardItem"
+import CardItem from "./CardItem";
 import CustomSlider from "./CustomSlider";
 
 const CardLibrary: React.FC = () => {
@@ -20,7 +20,7 @@ const CardLibrary: React.FC = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-
+  // Grouping cards by collection name
   const groupedCollections: Record<string, typeof cards> = cards.reduce(
     (acc, card) => {
       if (!acc[card.collection]) {
@@ -32,7 +32,7 @@ const CardLibrary: React.FC = () => {
     {} as Record<string, typeof cards>
   );
 
-
+  // Filtering collections based on search input
   const filteredCollections = Object.entries(groupedCollections).reduce(
     (acc, [collection, collectionCards]) => {
       const filteredCards = collectionCards.filter((card) =>
@@ -47,7 +47,6 @@ const CardLibrary: React.FC = () => {
     },
     {} as Record<string, typeof cards>
   );
-
 
   const collectionNames = Object.keys(filteredCollections);
   const collectionsPerPage = 5;
@@ -81,7 +80,7 @@ const CardLibrary: React.FC = () => {
       <SearchBox />
       <CardForm />
 
- 
+      {/* Display paginated collections */}
       {paginatedCollections.map((collection) => {
         const collectionImages = filteredCollections[collection] || [];
 
@@ -92,15 +91,16 @@ const CardLibrary: React.FC = () => {
             {collectionImages.length > 4 ? (
               <CustomSlider
                 items={collectionImages.map((card) => ({
+                  id: card.id, // Ensure 'id' is included
                   image: card.image,
                   title: card.title,
                   description: card.description,
                 }))}
               />
             ) : (
-              <div className="flex flex-wrap gap-6 justify-center">
+              <div className="flex flex-wrap gap-6 ">
                 {collectionImages.map((card) => (
-                  <CardItem key={card.title} card={card} />
+                  <CardItem key={card.id} card={card} />
                 ))}
               </div>
             )}
