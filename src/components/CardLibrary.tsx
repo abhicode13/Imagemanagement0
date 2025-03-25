@@ -80,7 +80,7 @@ const CardLibrary: React.FC = () => {
       <SearchBox />
       <CardForm />
 
-      {/* Display paginated collections */}
+      
       {paginatedCollections.map((collection) => {
         const collectionImages = filteredCollections[collection] || [];
 
@@ -91,7 +91,7 @@ const CardLibrary: React.FC = () => {
             {collectionImages.length > 4 ? (
               <CustomSlider
                 items={collectionImages.map((card) => ({
-                  id: card.id, // Ensure 'id' is included
+                  id: card.id, 
                   image: card.image,
                   title: card.title,
                   description: card.description,

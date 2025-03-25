@@ -9,7 +9,7 @@ const CustomSlider: React.FC<SliderProps> = ({ items }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(1);
-  const cardWidth = 250; // Fixed card width for calculation
+  const cardWidth = 250; 
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -31,7 +31,7 @@ const CustomSlider: React.FC<SliderProps> = ({ items }) => {
       const newIndex = Math.max(0, Math.min(index, totalPages - 1));
       const newScrollLeft = newIndex * cardWidth * visibleCount;
       
-      sliderRef.current.scrollLeft = newScrollLeft; // Direct scroll update for better performance
+      sliderRef.current.scrollLeft = newScrollLeft;
       setCurrentIndex(newIndex);
     }
   };
@@ -40,7 +40,7 @@ const CustomSlider: React.FC<SliderProps> = ({ items }) => {
     <div className="relative w-full px-4">
       <div
         ref={sliderRef}
-        className="flex gap-4 scrollbar-hide scroll-smooth w-full overflow-hidden" // Remove overflow-x-auto to prevent scrollbar
+        className="flex gap-4 scrollbar-hide scroll-smooth w-full overflow-hidden"
         style={{ scrollSnapType: "x mandatory", whiteSpace: "nowrap" }}
       >
         <style>{`.scrollbar-hide::-webkit-scrollbar { display: none; }`}</style>
@@ -50,7 +50,7 @@ const CustomSlider: React.FC<SliderProps> = ({ items }) => {
         ))}
       </div>
 
-      {/* Dot Navigation */}
+      
       <div className="flex justify-center mt-4 space-x-2">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button

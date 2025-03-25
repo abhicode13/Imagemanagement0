@@ -29,9 +29,9 @@ const CardForm: React.FC = () => {
       return;
     }
 
-    // Generate a unique ID for the new card
+    
     const newCard = {
-      id: crypto.randomUUID(), // Generates a unique UUID
+      id: crypto.randomUUID(),
       title,
       description,
       collection,
@@ -40,7 +40,7 @@ const CardForm: React.FC = () => {
 
     dispatch(addCard(newCard));
 
-    // Reset form
+
     setFormData({ title: "", description: "", collection: "", image: null });
     if (fileInputRef.current) fileInputRef.current.value = "";
   };

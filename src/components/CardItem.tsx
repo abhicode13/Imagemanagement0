@@ -4,7 +4,7 @@ import { removeCard } from "../redux/Cardslice";
 
 interface CardProps {
   card: {
-    id: string;  // Ensure id is a string
+    id: string;  
     title: string;
     description: string;
     image: string;
@@ -14,7 +14,7 @@ interface CardProps {
 const CardItem: React.FC<CardProps> = ({ card }) => {
   const dispatch = useDispatch();
 
-  const handleRemoveCard = () => dispatch(removeCard(card.id)); // No changes needed
+  const handleRemoveCard = () => dispatch(removeCard(card.id)); 
 
   return (
     <div className="w-[250px] h-[350px] flex-shrink-0 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
