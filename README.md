@@ -62,3 +62,40 @@ src/
 
 🔄 State Management with Redux: Efficient data handling and UI updates.
 
+📌 Image Slider
+How It Works:
+
+If a collection contains more than 4 images, a horizontal slider (carousel) is used instead of a grid layout.
+
+The slider automatically calculates how many images can fit on the screen and adjusts dynamically on window resize.
+
+Users can navigate the slider using dot indicators below the images.
+
+
+
+
+📖 Pagination
+How It Works:
+Pagination is applied only if there are more than 5 collections.
+
+Each page displays exactly 5 collections at a time.
+
+Users can navigate between pages using numbered page buttons (1, 2, 3, 4...) instead of "Next" and "Previous" buttons.
+
+The currently selected page is highlighted to indicate the active page.
+
+
+
+
+
+How It Works:
+The application supports both Dark Mode and Light Mode for a better user experience.
+
+Users can toggle between these themes using a switch button in the UI.
+
+The selected theme is applied instantly across the entire application.
+
+Theme Switching Logic:
+A state variable (isDarkMode) is used to track the current theme.
+
+Clicking the toggle button updates the isDarkMode state.

@@ -20,7 +20,7 @@ const CardLibrary: React.FC = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  // Grouping cards by collection name
+
   const groupedCollections: Record<string, typeof cards> = cards.reduce(
     (acc, card) => {
       if (!acc[card.collection]) {
@@ -32,7 +32,7 @@ const CardLibrary: React.FC = () => {
     {} as Record<string, typeof cards>
   );
 
-  // Filtering collections based on search input
+ 
   const filteredCollections = Object.entries(groupedCollections).reduce(
     (acc, [collection, collectionCards]) => {
       const filteredCards = collectionCards.filter((card) =>
@@ -86,7 +86,7 @@ const CardLibrary: React.FC = () => {
 
         return (
           <div key={collection} className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">{collection} Collection</h2>
+            <h2 className="text-2xl font-bold mb-4">{collection}</h2>
 
             {collectionImages.length > 4 ? (
               <CustomSlider
