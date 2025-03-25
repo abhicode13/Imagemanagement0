@@ -58,5 +58,7 @@ src/
 
 🎞️ Custom Image Slider: Browse through images in a smooth carousel.
 
+🌙 Dark Mode Functionality
+
 🔄 State Management with Redux: Efficient data handling and UI updates.
 
